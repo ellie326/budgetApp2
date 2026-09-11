@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리들의 가계부</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 1. 상단 헤더 -->
+  <header class="top-bar">
+    <div class="profile">
+      <img src="https://via.placeholder.com/40" alt="프로필" class="profile-img">
+      <span>내 가계부</span>
+    </div>
+    <button class="settings-btn">⚙️</button>
+  </header>
+
+  <!-- 2. 요약 카드 (2x2 Grid) -->
+  <section class="summary-grid">
+    <div class="card">
+      <span class="card-label">이번달 목표 지출</span>
+      <strong id="target-expense">0원</strong>
+    </div>
+    <div class="card">
+      <span class="card-label">이번달 지출</span>
+      <strong id="total-expense">0원</strong>
+    </div>
+    <div class="card">
+      <span class="card-label">이번달 수입</span>
+      <input type="number" id="income-input" placeholder="수입 입력" onchange="calculateGoal()">
+    </div>
+    <div class="card">
+      <span class="card-label">이번달 투자</span>
+      <input type="number" id="invest-input" placeholder="투자 입력" onchange="calculateGoal()">
+    </div>
+  </section>
+
+  <!-- 3. 월별 달력 -->
+  <section class="calendar-section">
+    <div class="calendar-header">
+      <button onclick="prevMonth()">◀</button>
+      <h3 id="current-month-year">2026년 9월</h3>
+      <button onclick="nextMonth()">▶</button>
+    </div>
+    <div class="calendar-grid" id="calendar-grid">
+      <!-- JS로 일자별 셀 자동 생성 -->
+    </div>
+  </section>
+
+  <!-- 4. 일별 지출 상세 스크롤 목록 -->
+  <section class="detail-section">
+    <h4 id="selected-date-title">선택된 날짜 지출 내역</h4>
+    <div class="scroll-list" id="detail-list">
+      <p class="empty-msg">지출 내역이 없습니다.</p>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
